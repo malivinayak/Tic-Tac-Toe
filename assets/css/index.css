@@ -1,3 +1,10 @@
+.parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
 
 .playground {
     display: grid;
@@ -6,6 +13,7 @@
     padding: 10px;
     width: 33rem;
 }
+
 .box {
     background-color: azure;
     border: 1px solid black;
