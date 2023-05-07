@@ -1,0 +1,19 @@
+
+.playground {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: aliceblue;
+    padding: 10px;
+    width: 33rem;
+}
+.box {
+    background-color: azure;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 2px;
+    width: 10rem;
+    height: 5rem;
+    text-align: center;
+    font-size: 40px;
+}
