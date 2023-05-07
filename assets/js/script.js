@@ -89,17 +89,24 @@ function checkResult() {
                 r2++;
             }
         }
-        if (r1 == 3 || r2 == 3) {
-            document.getElementById("result").innerHTML = r1 == 3 ? "Player 1 Win" : "Player 2 Win";
-            for (var x = 1; x <= 9; x++) {
-                const button = document.getElementById("box" + x);
-                button.disabled = true;
-            }
-        }
+        isWinner(r1,r2);
         r1 = 0;
         r2 = 0;
     }
 
+    var c1 = 0, c2 = 0;
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            if (choice[j][i] == "X") {
+                c1++;
+            } else if (choice[j][i] == "O") {
+                c2++;
+            }
+        }
+        isWinner(c1,c2);
+        c1 = 0;
+        c2 = 0;
+    }
 
     var d1 = 0, d2 = 0;
     for (i = 0; i < 3; i++) {
@@ -109,13 +116,7 @@ function checkResult() {
             d2++;
         }
     }
-    if (d1 == 3 || d2 == 3) {
-        document.getElementById("result").innerHTML = d1 == 3 ? "Player 1 Win" : "Player 2 Win";
-        for (var x = 1; x <= 9; x++) {
-            const button = document.getElementById("box" + x);
-            button.disabled = true;
-        }
-    }
+    isWinner(d1,d2);
     d1 = 0;
     d2 = 0;
     for (i = 0; i < 3; i++) {
@@ -125,8 +126,12 @@ function checkResult() {
             d2++;
         }
     }
-    if (d1 == 3 || d2 == 3) {
-        document.getElementById("result").innerHTML = d1 == 3 ? "Player 1 Win" : "Player 2 Win";
+    isWinner(d1,d2);
+}
+
+function isWinner(a,b){
+    if (a == 3 || b == 3) {
+        document.getElementById("result").innerHTML = a == 3 ? "Player 1 Win" : "Player 2 Win";
         for (var x = 1; x <= 9; x++) {
             const button = document.getElementById("box" + x);
             button.disabled = true;
