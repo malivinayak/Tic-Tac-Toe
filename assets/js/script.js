@@ -81,15 +81,18 @@ function box9() {
 
 function checkResult() {
     var r1 = 0, r2 = 0;
+    var emptyCells = 0; // Track the number of empty cells
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
             if (choice[i][j] == "X") {
                 r1++;
             } else if (choice[i][j] == "O") {
                 r2++;
+            } else {
+                emptyCells++; // Count empty cells
             }
         }
-        isWinner(r1,r2);
+        isWinner(r1, r2);
         r1 = 0;
         r2 = 0;
     }
@@ -103,7 +106,7 @@ function checkResult() {
                 c2++;
             }
         }
-        isWinner(c1,c2);
+        isWinner(c1, c2);
         c1 = 0;
         c2 = 0;
     }
@@ -116,18 +119,27 @@ function checkResult() {
             d2++;
         }
     }
-    isWinner(d1,d2);
+    isWinner(d1, d2);
     d1 = 0;
     d2 = 0;
     for (i = 0; i < 3; i++) {
-        if (choice[i][2-i] == "X") {
+        if (choice[i][2 - i] == "X") {
             d1++;
-        } else if (choice[i][2-i] == "O") {
+        } else if (choice[i][2 - i] == "O") {
             d2++;
         }
     }
-    isWinner(d1,d2);
+    isWinner(d1, d2);
+
+    // Check for a draw
+    if (emptyCells === 0) {
+        document.getElementById("result").innerHTML = "It's a Draw!";
+        setTimeout(function () {
+            window.location.reload(); // Reload the window after a brief delay
+        }, 2000); // You can adjust the delay time (in milliseconds) as needed
+    }
 }
+
 
 function isWinner(a,b){
     if (a == 3 || b == 3) {
@@ -136,5 +148,8 @@ function isWinner(a,b){
             const button = document.getElementById("box" + x);
             button.disabled = true;
         }
+        setTimeout(function() {
+            window.location.reload(); 
+        }, 2000);
     }
 }
