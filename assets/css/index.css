@@ -56,3 +56,55 @@ h1 {
   text-align: center;
   box-shadow: 0 8px 16px 0 rgba(234, 203, 7, 0.9);
 }
+.container{
+  padding-top: 40px;
+  text-align: center;
+  margin-top: auto;
+  
+}
+.btn{
+  padding: 20px 60px;
+  background-color: rgb(216, 180, 234);
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 300;
+  border-radius: 30px;
+}
+.popup{
+  width:400px;
+  background: rgb(169, 121, 193);
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  visibility: hidden;
+  transition: transform 0.4s,top 0.4s;
+}
+.popup h2{
+  font-size: 30px;
+  font-weight: 300;
+  margin: 30px 0 10px;
+}
+.popup button{
+  width:100%;
+  margin-top:50px;
+  padding: 10px 0;
+  background: #ff6868;
+  color: white;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+.open-popup{
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(1) ;
+}
