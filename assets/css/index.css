@@ -1,5 +1,5 @@
 :root {
-  --aliceblue: aliceblue;
+  --boardbg: #dcf5ff;
   background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
 }
 
@@ -14,9 +14,11 @@
 .playground {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: var(--aliceblue);
+  background-color: var(--boardbg);
   padding: 10px;
   width: 33rem;
+  justify-content: center;
+  border-radius: 1rem;
 }
 
 .box {
@@ -24,7 +26,7 @@
   border: 1px solid black;
   border-radius: 5px;
   padding: 2px;
-  margin: 2px;
+  margin: .5rem;
   width: 10rem;
   height: 5rem;
   text-align: center;
@@ -33,11 +35,11 @@
 }
 
 .box:hover {
-  background-color: rgba(var(--aliceblue), 0.5);
+  background-color: rgba(var(--boardbg), 0.5);
 }
 
 .box:active {
-  background-color: var(--aliceblue);
+  background-color: var(--boardbg);
   border-radius: 5px;
   margin: 0;
 }
@@ -47,12 +49,39 @@
 }
 
 h1 {
-  background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
+  background-color: #00e0ff;
   border: 0.5 thin black;
   background-repeat: no-repeat;
   border-radius: 10px;
   color: black;
   font-size: 2.5rem;
   text-align: center;
-  box-shadow: 0 8px 16px 0 rgba(234, 203, 7, 0.9);
+  padding: .5rem;
+}
+
+.animated-title {
+  text-transform: uppercase;
+  background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+
+}
+
+@keyframes textclip {
+  to {
+    background-position: 300% center;
+  }
+}
+
+#result {
+  background-color: transparent;
+  color: #00e0ff;
 }
