@@ -4,7 +4,7 @@ README.md
 
 This is a simple web-based Tic Tac Toe game that allows two players to compete against each other. 
 
-![image](https://user-images.githubusercontent.com/66154908/236675164-d66403be-460f-43a2-b696-00cd0a1ea1d1.png)
+![tic-tac-toe ui image](https://github.com/SumitMangrati/Tic-Tac-Toe/assets/113664757/5367a672-c45c-4ed7-ba25-715f6b899ee9)
 
 ## How to Play
 
