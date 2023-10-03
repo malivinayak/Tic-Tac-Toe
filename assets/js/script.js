@@ -131,8 +131,10 @@ function checkResult() {
     // Check for a draw
     if (emptyCells === 0) {
         document.getElementById("result").innerHTML = "It's a Draw!";
-        
-    }
+        setTimeout(function () {
+          window.location.reload();
+        }, 2000);
+      }
 }
 function isWinner(a, b) {
     if (a == 3 || b == 3) {
