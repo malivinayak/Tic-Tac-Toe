@@ -1,6 +1,23 @@
+/* "Roboto" font from google fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: inherit;
+}
 :root {
   --aliceblue: aliceblue;
-  background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
+}
+body {
+  background: radial-gradient(
+    circle,
+    rgba(87, 108, 200, 1) 0%,
+    rgba(55, 37, 88, 1) 100%
+  );
+  font-family: "Roboto", sans-serif;
+  color: white;
 }
 
 .parent {
@@ -16,7 +33,8 @@
   grid-template-columns: auto auto auto;
   background-color: var(--aliceblue);
   padding: 10px;
-  width: 33rem;
+
+  border-radius: 10px;
 }
 
 .box {
@@ -25,15 +43,18 @@
   border-radius: 5px;
   padding: 2px;
   margin: 2px;
-  width: 10rem;
-  height: 5rem;
+  width: 7rem;
+  height: 7rem;
   text-align: center;
   font-size: 40px;
   transition: background-color 0.2s ease-in-out;
+  color: black;
+  font-size: 4.5rem;
 }
 
 .box:hover {
-  background-color: rgba(var(--aliceblue), 0.5);
+  cursor: pointer;
+  background-color: rgba(87, 52, 137, 0.59);
 }
 
 .box:active {
@@ -42,17 +63,14 @@
   margin: 0;
 }
 
-.box::content{
-  color: black;
-}
-
-h1 {
-  background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
-  border: 0.5 thin black;
-  background-repeat: no-repeat;
-  border-radius: 10px;
-  color: black;
-  font-size: 2.5rem;
-  text-align: center;
-  box-shadow: 0 8px 16px 0 rgba(234, 203, 7, 0.9);
+.title-container h1 {
+  color: rgb(40, 40, 40);
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.375),
+    transparent
+  );
+  padding: 0 50px;
+  text-shadow: 1px 1px 1px rgb(176, 176, 176);
 }
