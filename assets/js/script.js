@@ -5,7 +5,6 @@ var choice = [
     ["-", "-", "-"],
     ["-", "-", "-"]
 ];
-
 function box1() {
     if (choice[0][0] == "-") {
         document.getElementById("box1").innerHTML = P1 ? "X" : "O";
@@ -78,7 +77,6 @@ function box9() {
         P1 = !P1;
     }
 }
-
 function checkResult() {
     var r1 = 0, r2 = 0;
     var emptyCells = 0; // Track the number of empty cells
@@ -130,23 +128,24 @@ function checkResult() {
         }
     }
     isWinner(d1, d2);
-
     // Check for a draw
     if (emptyCells === 0) {
         document.getElementById("result").innerHTML = "It's a Draw!";
         setTimeout(function () {
+            alert("It's a Draw")
             window.location.reload(); // Reload the window after a brief delay
-        }, 2000); // You can adjust the delay time (in milliseconds) as needed
+        }, 0); // You can adjust the delay time (in milliseconds) as needed
     }
 }
-
-
 function isWinner(a,b){
     if (a == 3 || b == 3) {
-        
         document.getElementById("result").innerHTML = a == 3 ? "Player 1 Win" : "Player 2 Win";
-        if(document.getElementById("result").innerHTML=="Player 1 Win")  alert("Player 1 Win Hurray !")
+        setTimeout(
+            ()=>{
+                if(document.getElementById("result").innerHTML=="Player 1 Win")  alert("Player 1 Win Hurray !")
         else alert("Player 2 win Hurray !");
+            },0
+        )
         for (var x = 1; x <= 9; x++) {
             const button = document.getElementById("box" + x);
             button.disabled = true;
