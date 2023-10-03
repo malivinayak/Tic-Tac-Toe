@@ -131,27 +131,36 @@ function checkResult() {
     // Check for a draw
     if (emptyCells === 0) {
         document.getElementById("result").innerHTML = "It's a Draw!";
-        setTimeout(function () {
-            alert("It's a Draw")
-            window.location.reload(); // Reload the window after a brief delay
-        }, 0); // You can adjust the delay time (in milliseconds) as needed
+        
     }
 }
-function isWinner(a,b){
+function isWinner(a, b) {
     if (a == 3 || b == 3) {
-        document.getElementById("result").innerHTML = a == 3 ? "Player 1 Win" : "Player 2 Win";
-        setTimeout(
-            ()=>{
-                if(document.getElementById("result").innerHTML=="Player 1 Win")  alert("Player 1 Win Hurray !")
-        else alert("Player 2 win Hurray !");
-            },0
-        )
+        setTimeout(() => {
+            document.getElementById("result").innerHTML = a == 3 ? "Player 1 Win" : "Player 2 Win";
+        }, 0);
+      
+  
+      setTimeout(function () {
+      
         for (var x = 1; x <= 9; x++) {
-            const button = document.getElementById("box" + x);
-            button.disabled = true;
+          const button = document.getElementById("box" + x);
+          button.disabled = true;
         }
-        setTimeout(function() {
-            window.location.reload(); 
+  
+        // Delay the page reload by 2 seconds
+        setTimeout(function () {
+          window.location.reload();
         }, 2000);
+  
+      }, 0);
+  
+      // Prevent further state changes after a win
+      for (var x = 1; x <= 9; x++) {
+        const button = document.getElementById("box" + x);
+        button.disabled = true;
+      }
     }
-}
+  }
+  
+  
