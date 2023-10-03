@@ -143,7 +143,10 @@ function checkResult() {
 
 function isWinner(a,b){
     if (a == 3 || b == 3) {
+        
         document.getElementById("result").innerHTML = a == 3 ? "Player 1 Win" : "Player 2 Win";
+        if(document.getElementById("result").innerHTML=="Player 1 Win")  alert("Player 1 Win Hurray !")
+        else alert("Player 2 win Hurray !");
         for (var x = 1; x <= 9; x++) {
             const button = document.getElementById("box" + x);
             button.disabled = true;
