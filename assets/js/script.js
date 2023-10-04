@@ -141,7 +141,7 @@ function isWinner(a, b) {
         setTimeout(() => {
             document.getElementById("result").innerHTML = a == 3 ? "Player 1 Win" : "Player 2 Win";
         }, 0);
-      
+      document.getElementById("result").style.padding='10px';
   
       setTimeout(function () {
       
