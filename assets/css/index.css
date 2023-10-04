@@ -68,7 +68,7 @@ h1 {
   margin-bottom: 2vh;
 }
 
-h1 #result{
+#result{
   background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
   border: 0.5 thin black;
   background-repeat: no-repeat;
@@ -77,8 +77,8 @@ h1 #result{
   font-size: 2.5rem;
   text-align: center;
   box-shadow: 0 8px 16px 0 rgba(234, 203, 7, 0.9);
-  margin-top: 0;
-  margin-bottom: 25pxs;
+  margin-top: 8vh;
+  margin-bottom: 2vh;
   padding-top: 0;
 }
 .container{
