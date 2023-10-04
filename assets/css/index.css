@@ -16,12 +16,16 @@
   grid-template-columns: auto auto auto;
   background-color: var(--aliceblue);
   padding: 10px;
+  border-radius: 5px;
   width: 33rem;
+  margin-top: 30px;
+  
+  
 }
 
 .box {
   background-color: azure;
-  border: 1px solid black;
+  border: 1px solid rgb(15, 25, 220);
   border-radius: 5px;
   padding: 2px;
   margin: 2px;
@@ -55,13 +59,28 @@ h1 {
   font-size: 2.5rem;
   text-align: center;
   box-shadow: 0 8px 16px 0 rgba(234, 203, 7, 0.9);
+  margin-top: 95px;
+  margin-bottom: 0px;
+}
+h1 #result{
+  background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
+  border: 0.5 thin black;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  color: black;
+  font-size: 2.5rem;
+  text-align: center;
+  box-shadow: 0 8px 16px 0 rgba(234, 203, 7, 0.9);
+  margin-top: 0;
+  margin-bottom: 25pxs;
+  padding-top: 0;
 }
 .container{
   padding: auto ;
   text-align: center;
   margin-top: auto;
   position: relative;
-  height: 50px;
+  height: 10px;
   width: 100%;
   
 }
