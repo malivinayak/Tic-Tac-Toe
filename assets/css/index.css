@@ -31,7 +31,6 @@ body {
   grid-template-columns: auto auto auto;
   background-color: var(--boardbg);
   padding: 10px;
-  width: 33rem;
   justify-content: center;
   border-radius: 1rem;
   border-radius: 5px;
@@ -88,6 +87,7 @@ h1 {
 
 #result {
   background-color: transparent;
+  background-image: none;
   background-clip: text;
   color: #00e0ff;
 }
@@ -111,10 +111,7 @@ h1 {
 @keyframes textclip {
   to {
     background-position: 300% center;
-  box-shadow: 0 8px 16px 0 rgba(234, 203, 7, 0.9);
-  margin-top: 5vh;
-  margin-bottom: 2vh;
-}
+}}
 
 .container {
   padding: auto;
