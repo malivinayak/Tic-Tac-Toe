@@ -66,6 +66,7 @@ body {
   margin-top: 10vh;
   margin-bottom: 2vh;
   box-shadow: 10px 5px 5px black;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.444);
 }
 
 #result {
@@ -104,8 +105,8 @@ body {
   bottom: 15px;
 }
 .btn:hover {
-  background-color:black;
-  color:white;
+  color:rgb(138, 14, 14);
+  background-color: rgb(203, 153, 228);
 }
 
 .popup {
