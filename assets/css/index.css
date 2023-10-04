@@ -1,6 +1,21 @@
+/* "Roboto" font from google fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: inherit;
+}
 :root {
   --boardbg: #dcf5ff;
+  --aliceblue: aliceblue;
+}
+
+body {
+  margin: 0px;
   background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
+  font-family: "Roboto", sans-serif;
 }
 
 .parent {
@@ -8,7 +23,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
 }
 
 .playground {
@@ -19,18 +34,21 @@
   width: 33rem;
   justify-content: center;
   border-radius: 1rem;
+  border-radius: 5px;
+  margin-top: 30px;
 }
 
 .box {
   background-color: azure;
-  border: 1px solid black;
+  border: 1px solid rgb(15, 25, 220);
   border-radius: 5px;
   padding: 2px;
-  margin: .5rem;
-  width: 10rem;
-  height: 5rem;
+  margin: 2px;
+  width: 7rem;
+  height: 7rem;
   text-align: center;
-  font-size: 40px;
+  font-size: 50px;
+  font-weight: bold;
   transition: background-color 0.2s ease-in-out;
 }
 
@@ -44,17 +62,26 @@
   margin: 0;
 }
 
-.box::content{
-  color: black;
+.title {
+  background: linear-gradient(75deg, #00e1ff88, #6f00ff73 48%, #ff686871);
+  border-radius: 10px;
+  padding: 5px 28px;
+  font-size: 2.5rem;
+  margin-top: 10vh;
+  margin-bottom: 2vh;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.444);
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
 }
 
 h1 {
   background-color: #00e0ff;
+  background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
   border: 0.5 thin black;
   background-repeat: no-repeat;
   border-radius: 10px;
   color: black;
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: center;
   padding: .5rem;
 }
@@ -65,7 +92,7 @@ h1 {
   color: #00e0ff;
 }
 
-.animated-title {
+.title {
   text-transform: uppercase;
   background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
   background-size: auto auto;
@@ -84,5 +111,103 @@ h1 {
 @keyframes textclip {
   to {
     background-position: 300% center;
+  box-shadow: 0 8px 16px 0 rgba(234, 203, 7, 0.9);
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+}
+
+.container {
+  padding: auto;
+  text-align: center;
+  margin-top: auto;
+  position: relative;
+  height: 10px;
+  width: 100%;
+}
+
+.btn {
+  padding: 20px 60px;
+  background-color: rgb(216, 180, 234);
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 500;
+  border-radius: 30px;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+.btn:hover {
+  background-color: rgb(203, 153, 228);
+}
+
+.popup {
+  min-width: 600px;
+  background: rgb(169, 121, 193);
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  font-size: 19px;
+  padding: 0 30px 30px;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+}
+
+.popup h2 {
+  font-size: 30px;
+  font-weight: 500;
+  margin: 30px 0 10px;
+}
+
+.popup button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 10px 0;
+  background-color: #ff6868;
+  color: white;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.popup button:hover {
+  background: #ee4e4e;
+}
+.open-popup {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+.popup ol li {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  line-height: 0.95;
+}
+
+/*Mobile screen styles*/
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.2rem;
+    margin-bottom: 7vh;
+  }
+  .box {
+    width: 6rem;
+    height: 6rem;
+    font-size: 40px;
+  }
+  .btn {
+    padding: 10px 30px;
+    font-size: 15px;
+  }
+  .popup {
+    min-width: 400px;
+    padding: 0 10px 20px 10px;
+  }
+  .popup h2 {
+    font-size: 25px;
   }
 }
