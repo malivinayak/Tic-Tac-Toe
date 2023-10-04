@@ -99,8 +99,8 @@ h1 #result{
   font-weight: 300;
   border-radius: 30px;
   position: absolute;
-  right: 0;
-  bottom: 5px;
+  right: 15px;
+  bottom: 15px;
 }
 .popup{
   width:400px;
