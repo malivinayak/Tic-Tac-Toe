@@ -3,12 +3,17 @@
   background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
 }
 
+
+body {
+  margin : 0px;
+}
+
 .parent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
 }
 
 .playground {
