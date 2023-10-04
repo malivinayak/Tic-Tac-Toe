@@ -3,12 +3,16 @@
   background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
 }
 
+body {
+  margin : 0px;
+}
+
 .parent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
 }
 
 .playground {
@@ -16,12 +20,14 @@
   grid-template-columns: auto auto auto;
   background-color: var(--aliceblue);
   padding: 10px;
+  border-radius: 5px;
   width: 33rem;
+  margin-top: 30px;
 }
 
 .box {
   background-color: azure;
-  border: 1px solid black;
+  border: 1px solid rgb(15, 25, 220);
   border-radius: 5px;
   padding: 2px;
   margin: 2px;
@@ -55,4 +61,82 @@ h1 {
   font-size: 2.5rem;
   text-align: center;
   box-shadow: 0 8px 16px 0 rgba(234, 203, 7, 0.9);
+  margin-top: 18vh;
+  margin-bottom: 2vh;
+}
+
+#result{
+  background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
+  border: 0.5 thin black;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  color: black;
+  font-size: 2.5rem;
+  text-align: center;
+  box-shadow: 0 8px 16px 0 rgba(234, 203, 7, 0.9);
+  margin-top: 8vh;
+  margin-bottom: 2vh;
+  padding-top: 0;
+}
+
+.container{
+  padding: auto ;
+  text-align: center;
+  margin-top: auto;
+  position: relative;
+  height: 10px;
+  width: 100%;
+}
+
+.btn{
+  padding: 20px 60px;
+  background-color: rgb(216, 180, 234);
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 300;
+  border-radius: 30px;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+
+.popup{
+  width:400px;
+  background: rgb(169, 121, 193);
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0.1);
+  text-align: left;
+  font-size: 19px;
+  padding: 0 30px 30px;
+  visibility: hidden;
+  transition: transform 0.4s,top 0.4s;
+}
+
+.popup h2{
+  font-size: 30px;
+  font-weight: 300;
+  margin: 30px 0 10px;
+}
+
+.popup button{
+  width:100%;
+  margin-top:50px;
+  padding: 10px 0;
+  background: #ff6868;
+  color: white;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.open-popup{
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(1) ;
 }
