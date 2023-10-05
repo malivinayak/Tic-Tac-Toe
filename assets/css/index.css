@@ -121,6 +121,8 @@ body {
   padding: 0 30px 30px;
   visibility: hidden;
   transition: transform 0.4s, top 0.4s;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s, visibility 0.4s;
 }
 
 .popup h2 {
@@ -148,6 +150,7 @@ body {
   visibility: visible;
   top: 50%;
   transform: translate(-50%, -50%) scale(1);
+  transition: all 0.5s ease-in-out;
 }
 .popup ol li {
   font-size: 1rem;

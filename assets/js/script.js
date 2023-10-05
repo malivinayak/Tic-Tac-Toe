@@ -172,4 +172,9 @@ function isWinner(a, b) {
   }
   function closePopup(){
     popup.classList.remove("open-popup")
+    popup.classList.add("fade-out"); 
+    setTimeout(() => {
+    popup.classList.remove("visible");
+    popup.classList.remove("fade-out");
+  }, 1000); 
   }
