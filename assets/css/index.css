@@ -68,8 +68,7 @@ body {
   margin-top: 10vh;
   margin-bottom: 2vh;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.444);
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
+  border: 1px solid white;
   color: white;
 }
 .title:hover {
@@ -77,14 +76,18 @@ body {
 }
 
 #result {
-  background: linear-gradient(75deg, #00e1ff, #6f00ff 48%, #ff6868);
-  border: 2px thin white;
+  background: linear-gradient(75deg, #00e1ff88, #6f00ff73 48%, #ff686871);
   background-repeat: no-repeat;
   border-radius: 10px;
+  border: 1px solid white;
   color: white;
   font-size: 2rem;
   text-align: center;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.444);
+  padding: 4px;
+}
+#result:hover {
+  background: linear-gradient(75deg, #00e1ff, #6f00ff 48%, #ff6868);
 }
 
 .container {
@@ -108,7 +111,7 @@ body {
   position: absolute;
   right: 15px;
   bottom: 15px;
-  color: white;
+  color: black;
 }
 .btn:hover {
   box-shadow: 0 0 0 3px #fff;
@@ -119,33 +122,30 @@ body {
   background: rgb(169, 121, 193);
   border-radius: 5px;
   position: absolute;
-  top: 0;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.1);
-  font-size: 19px;
-  padding: 30px;
+  padding: 0 10px 20px 10px;
   visibility: hidden;
   transition: transform 0.4s, top 0.4s;
+  height: 370px;
 }
 
 .popup h2 {
   font-size: 30px;
   font-weight: 500;
-  margin: 30px 0 10px;
-  color: white;
+  color: black;
 }
 
 .popup button {
   width: 100%;
-  margin-top: 30px;
-  padding: 10px 0;
+  padding: 10px 10px;
   background-color: #ff6868;
   color: white;
   border: 0;
   outline: none;
-  font-size: 18px;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: 40px;
 }
 .popup button:hover {
   background: #ee4e4e;
@@ -156,11 +156,10 @@ body {
   transform: translate(-50%, -50%) scale(1);
 }
 .popup ol li {
-  font-size: 1rem;
-  margin-bottom: 15px;
+  font-size: 1.2rem;
+  margin-bottom: 1px;
   line-height: 0.95;
-  color: white;
-  font-size: 20px;
+  color: black;
 }
 
 /*Mobile screen styles*/
@@ -176,13 +175,47 @@ body {
   }
   .btn {
     padding: 10px 30px;
-    font-size: 15px;
+    font-size: 25px;
   }
   .popup {
     min-width: 400px;
     padding: 0 10px 20px 10px;
+    top: 41%;
   }
   .popup h2 {
+    margin: 30px 0 10px;
     font-size: 25px;
+  }
+  .popup button {
+    margin-top: 40px;
+  }
+}
+
+/* For Smaller Screen devices */
+@media (max-width: 400px) {
+  .title {
+    font-size: 2.2rem;
+    margin-bottom: 7vh;
+  }
+  .box {
+    width: 6rem;
+    height: 6rem;
+    font-size: 40px;
+  }
+  .btn {
+    padding: 5px 15px;
+    font-size: 20px;
+  }
+  .popup {
+    min-width: 350px;
+    padding: 0 10px 20px 10px;
+    top: 41%;
+  }
+  .popup h2 {
+    margin: 30px 0 10px;
+    font-size: 25px;
+  }
+  .popup button {
+    margin-top: 40px;
   }
 }
