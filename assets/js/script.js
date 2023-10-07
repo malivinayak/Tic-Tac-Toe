@@ -5,6 +5,7 @@ var choice = [
     ["-", "-", "-"],
     ["-", "-", "-"]
 ];
+
 function box1() {
     if (choice[0][0] == "-") {
         document.getElementById("box1").innerHTML = P1 ? "X" : "O";
@@ -135,10 +136,12 @@ function checkResult() {
           window.location.reload();
         }, 2000);
       }
+    document.getElementById("result").innerHTML = !P1 ? "Player X Turn" : "Player O Turn";
 }
 function isWinner(a, b) {
     if (a == 3 || b == 3) {
         setTimeout(() => {
+            document.getElementById("result").className = "animated-title"
             document.getElementById("result").innerHTML = a == 3 ? "Player 1 Win" : "Player 2 Win";
         }, 0);
       
