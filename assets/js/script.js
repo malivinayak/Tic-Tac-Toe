@@ -1,178 +1,137 @@
-
-var P1 = true;
+var currentPlayer = "X";
 var choice = [
     ["-", "-", "-"],
     ["-", "-", "-"],
     ["-", "-", "-"]
 ];
 
+function win() {
+    var audio = document.getElementById("win");
+    audio.play();
+}
+
+function draw() {
+    var audio = document.getElementById("tie");
+    audio.play();
+}
+
 function box1() {
-    if (choice[0][0] == "-") {
-        document.getElementById("box1").innerHTML = P1 ? "X" : "O";
-        choice[0][0] = P1 ? "X" : "O";
-        checkResult();
-        P1 = !P1;
-    }
+    makeMove(0, 0, "box1");
 }
 function box2() {
-    if (choice[0][1] == "-") {
-        document.getElementById("box2").innerHTML = P1 ? "X" : "O";
-        choice[0][1] = P1 ? "X" : "O";
-        checkResult();
-        P1 = !P1;
-    }
+    makeMove(0, 1, "box2");
 }
 function box3() {
-    if (choice[0][2] == "-") {
-        document.getElementById("box3").innerHTML = P1 ? "X" : "O";
-        choice[0][2] = P1 ? "X" : "O";
-        checkResult();
-        P1 = !P1;
-    }
+    makeMove(0, 2, "box3");
 }
 function box4() {
-    if (choice[1][0] == "-") {
-        document.getElementById("box4").innerHTML = P1 ? "X" : "O";
-        choice[1][0] = P1 ? "X" : "O";
-        checkResult();
-        P1 = !P1;
-    }
+    makeMove(1, 0, "box4");
 }
 function box5() {
-    if (choice[1][1] == "-") {
-        document.getElementById("box5").innerHTML = P1 ? "X" : "O";
-        choice[1][1] = P1 ? "X" : "O";
-        checkResult();
-        P1 = !P1;
-    }
+    makeMove(1, 1, "box5");
 }
 function box6() {
-    if (choice[1][2] == "-") {
-        document.getElementById("box6").innerHTML = P1 ? "X" : "O";
-        choice[1][2] = P1 ? "X" : "O";
-        checkResult();
-        P1 = !P1;
-    }
+    makeMove(1, 2, "box6");
 }
 function box7() {
-    if (choice[2][0] == "-") {
-        document.getElementById("box7").innerHTML = P1 ? "X" : "O";
-        choice[2][0] = P1 ? "X" : "O";
-        checkResult();
-        P1 = !P1;
-    }
+    makeMove(2, 0, "box7");
 }
 function box8() {
-    if (choice[2][1] == "-") {
-        document.getElementById("box8").innerHTML = P1 ? "X" : "O";
-        choice[2][1] = P1 ? "X" : "O";
-        checkResult();
-        P1 = !P1;
-    }
+    makeMove(2, 1, "box8");
 }
 function box9() {
-    if (choice[2][2] == "-") {
-        document.getElementById("box9").innerHTML = P1 ? "X" : "O";
-        choice[2][2] = P1 ? "X" : "O";
+    makeMove(2, 2, "box9");
+}
+
+function makeMove(row, col, boxId) {
+    if (choice[row][col] == "-") {
+        document.getElementById(boxId).textContent = currentPlayer;
+        choice[row][col] = currentPlayer;
         checkResult();
-        P1 = !P1;
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
     }
 }
+
 function checkResult() {
-    var r1 = 0, r2 = 0;
-    var emptyCells = 0; // Track the number of empty cells
-    for (i = 0; i < 3; i++) {
-        for (j = 0; j < 3; j++) {
-            if (choice[i][j] == "X") {
-                r1++;
-            } else if (choice[i][j] == "O") {
-                r2++;
-            } else {
-                emptyCells++; // Count empty cells
-            }
+    var winner = null; // Track the winner, if there is any.
+
+    // Check for a win
+    for (let i = 0; i < 3; i++) {
+        if (choice[i][0] === currentPlayer && choice[i][1] === currentPlayer && choice[i][2] === currentPlayer) {
+            winner = currentPlayer;
+            break;
         }
-        isWinner(r1, r2);
-        r1 = 0;
-        r2 = 0;
+        if (choice[0][i] === currentPlayer && choice[1][i] === currentPlayer && choice[2][i] === currentPlayer) {
+            winner = currentPlayer;
+            break;
+        }
     }
 
-    var c1 = 0, c2 = 0;
-    for (i = 0; i < 3; i++) {
-        for (j = 0; j < 3; j++) {
-            if (choice[j][i] == "X") {
-                c1++;
-            } else if (choice[j][i] == "O") {
-                c2++;
-            }
-        }
-        isWinner(c1, c2);
-        c1 = 0;
-        c2 = 0;
+    if (!winner && choice[0][0] === currentPlayer && choice[1][1] === currentPlayer && choice[2][2] === currentPlayer) {
+        winner = currentPlayer;
     }
 
-    var d1 = 0, d2 = 0;
-    for (i = 0; i < 3; i++) {
-        if (choice[i][i] == "X") {
-            d1++;
-        } else if (choice[i][i] == "O") {
-            d2++;
-        }
+    if (!winner && choice[0][2] === currentPlayer && choice[1][1] === currentPlayer && choice[2][0] === currentPlayer) {
+        winner = currentPlayer;
     }
-    isWinner(d1, d2);
-    d1 = 0;
-    d2 = 0;
-    for (i = 0; i < 3; i++) {
-        if (choice[i][2 - i] == "X") {
-            d1++;
-        } else if (choice[i][2 - i] == "O") {
-            d2++;
-        }
-    }
-    isWinner(d1, d2);
-    // Check for a draw
-    if (emptyCells === 0) {
-        document.getElementById("result").innerHTML = "It's a Draw!";
-        setTimeout(function () {
-          window.location.reload();
-        }, 2000);
-      }
-    document.getElementById("result").innerHTML = !P1 ? "Player X Turn" : "Player O Turn";
-}
-function isWinner(a, b) {
-    if (a == 3 || b == 3) {
+
+    if (winner) {
+        displayResult(winner + " Wins!");
+        win();
         setTimeout(() => {
-            document.getElementById("result").className = "animated-title"
-            document.getElementById("result").innerHTML = a == 3 ? "Player 1 Win" : "Player 2 Win";
-        }, 0);
-      
-  
-      setTimeout(function () {
-      
-        for (var x = 1; x <= 9; x++) {
-          const button = document.getElementById("box" + x);
-          button.disabled = true;
-        }
-  
-        // Delay the page reload by 2 seconds
-        setTimeout(function () {
-          window.location.reload();
-        }, 2000);
-  
-      }, 0);
-  
-      // Prevent further state changes after a win
-      for (var x = 1; x <= 9; x++) {
-        const button = document.getElementById("box" + x);
-        button.disabled = true;
-      }
+            resetGame();
+        }, 3000);
+        return;
     }
-  }
-  
-  let popup = document.getElementById("popup");
-  function openPopup(){
 
-    popup.classList.add("open-popup");
-  }
-  function closePopup(){
-    popup.classList.remove("open-popup")
-  }
+    // Check for a draw
+    var isDraw = true;
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (choice[i][j] === "-") {
+                isDraw = false;
+                break;
+            }
+        }
+    }
+
+    if (isDraw) {
+        displayResult("It's a Draw!");
+        draw();
+        setTimeout(() => {
+            resetGame();
+        }, 3000);
+    }
+}
+
+function displayResult(message) {
+    var resultElement = document.getElementById("result");
+    resultElement.textContent = message;
+}
+
+function resetGame() {
+    currentPlayer = "X";
+    choice = [
+        ["-", "-", "-"],
+        ["-", "-", "-"],
+        ["-", "-", "-"]
+    ];
+    clearBoard();
+    document.getElementById("result").textContent = "";
+}
+
+function clearBoard() {
+    for (let i = 1; i <= 9; i++) {
+        document.getElementById("box" + i).textContent = "";
+    }
+}
+
+function openPopup() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "block";
+}
+
+function closePopup() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "none";
+}

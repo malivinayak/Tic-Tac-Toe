@@ -29,7 +29,9 @@ body {
 .playground {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: var(--boardbg);
+  box-shadow: 0 10px 20px rgba(43, 41, 41, 0.2);
+  border: 1px solid rgb(255, 255, 255);
+  border-width: 2px;
   padding: 10px;
   justify-content: center;
   border-radius: 1rem;
@@ -38,8 +40,9 @@ body {
 }
 
 .box {
-  background-color: azure;
-  border: 1px solid rgb(15, 25, 220);
+  background-color: rgb(173, 243, 243);
+  border: 1px solid #ffffff;
+  border-width:2px;
   border-radius: 5px;
   padding: 2px;
   margin: 2px;
@@ -52,11 +55,11 @@ body {
 }
 
 .box:hover {
-  background-color: rgba(var(--boardbg), 0.5);
+  background-color: rgb(210, 244, 244);
 }
 
 .box:active {
-  background-color: var(--boardbg);
+  background-color: rgb(173, 243, 243);
   border-radius: 5px;
   margin: 0;
 }
