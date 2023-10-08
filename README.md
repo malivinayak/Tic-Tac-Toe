@@ -46,6 +46,87 @@ Sure, here's an example of how to add the contribution and license sections to y
 ## Contributors
 
 <!-- readme: contributors -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/malivinayak">
+            <img src="https://avatars.githubusercontent.com/u/66154908?v=4" width="100;" alt="malivinayak"/>
+            <br />
+            <sub><b>Vinayak Mali</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Avinash-31">
+            <img src="https://avatars.githubusercontent.com/u/98730174?v=4" width="100;" alt="Avinash-31"/>
+            <br />
+            <sub><b>Avinash Yeddu</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Mouli-3542">
+            <img src="https://avatars.githubusercontent.com/u/143725284?v=4" width="100;" alt="Mouli-3542"/>
+            <br />
+            <sub><b>Chandra Mouli</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/SumitMangrati">
+            <img src="https://avatars.githubusercontent.com/u/113664757?v=4" width="100;" alt="SumitMangrati"/>
+            <br />
+            <sub><b>Haru</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/MustafaKhan026">
+            <img src="https://avatars.githubusercontent.com/u/53117363?v=4" width="100;" alt="MustafaKhan026"/>
+            <br />
+            <sub><b>Mohammed Mustafa Khan</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ruturaj-gh">
+            <img src="https://avatars.githubusercontent.com/u/83021083?v=4" width="100;" alt="ruturaj-gh"/>
+            <br />
+            <sub><b>Ruturaj Dnyandev Ghumkar</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/Sankalp20Tiwari">
+            <img src="https://avatars.githubusercontent.com/u/101463579?v=4" width="100;" alt="Sankalp20Tiwari"/>
+            <br />
+            <sub><b>Sankalp Tiwari</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/SumitVerma-coder">
+            <img src="https://avatars.githubusercontent.com/u/112965155?v=4" width="100;" alt="SumitVerma-coder"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/taylorlottdixon">
+            <img src="https://avatars.githubusercontent.com/u/136010920?v=4" width="100;" alt="taylorlottdixon"/>
+            <br />
+            <sub><b>Taylor Dixon</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ruamazi">
+            <img src="https://avatars.githubusercontent.com/u/119816587?v=4" width="100;" alt="ruamazi"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/shivam-sharma-03">
+            <img src="https://avatars.githubusercontent.com/u/114740865?v=4" width="100;" alt="shivam-sharma-03"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: contributors -end -->
 
 ## Contribution
