@@ -5,6 +5,7 @@ var choice = [
     ["-", "-", "-"],
     ["-", "-", "-"]
 ];
+
 // Function to reset the game
 function resetGame() {
     for (let i = 1; i <= 9; i++) {
@@ -55,6 +56,7 @@ function box1() {
         P1 = !P1;
     }
 }
+
 function box2() {
     if (choice[0][1] == "-") {
         document.getElementById("box2").innerHTML = P1 ? "X" : "O";
@@ -64,6 +66,7 @@ function box2() {
         P1 = !P1;
     }
 }
+
 function box3() {
     if (choice[0][2] == "-") {
         document.getElementById("box3").innerHTML = P1 ? "X" : "O";
@@ -73,6 +76,7 @@ function box3() {
         P1 = !P1;
     }
 }
+
 function box4() {
     if (choice[1][0] == "-") {
         document.getElementById("box4").innerHTML = P1 ? "X" : "O";
@@ -82,6 +86,7 @@ function box4() {
         P1 = !P1;
     }
 }
+
 function box5() {
     if (choice[1][1] == "-") {
         document.getElementById("box5").innerHTML = P1 ? "X" : "O";
@@ -91,6 +96,7 @@ function box5() {
         P1 = !P1;
     }
 }
+
 function box6() {
     if (choice[1][2] == "-") {
         document.getElementById("box6").innerHTML = P1 ? "X" : "O";
@@ -100,6 +106,7 @@ function box6() {
         P1 = !P1;
     }
 }
+
 function box7() {
     if (choice[2][0] == "-") {
         document.getElementById("box7").innerHTML = P1 ? "X" : "O";
@@ -109,6 +116,7 @@ function box7() {
         P1 = !P1;
     }
 }
+
 function box8() {
     if (choice[2][1] == "-") {
         document.getElementById("box8").innerHTML = P1 ? "X" : "O";
@@ -118,6 +126,7 @@ function box8() {
         P1 = !P1;
     }
 }
+
 function box9() {
     if (choice[2][2] == "-") {
         document.getElementById("box9").innerHTML = P1 ? "X" : "O";
@@ -127,6 +136,7 @@ function box9() {
         P1 = !P1;
     }
 }
+
 function checkResult() {
     var r1 = 0, r2 = 0;
     var emptyCells = 0; // Track the number of empty cells
@@ -178,25 +188,28 @@ function checkResult() {
         }
     }
     isWinner(d1, d2);
+
     // Check for a draw
-    if (emptyCells === 0) {
+    if (emptyCells === 0 && !isWinner(r1, r2) && !isWinner(c1, c2) && !isWinner(d1, d2)) {
         document.getElementById("result").innerHTML = "It's a Draw!";
+        playTieSound(); // Play the tie sound
         setTimeout(function () {
             window.location.reload();
-        }, 2000);
+        }, 3000);
+    } else {
+        document.getElementById("result").innerHTML = !P1 ? "Player X Turn" : "Player O Turn";
     }
-    document.getElementById("result").innerHTML = !P1 ? "Player X Turn" : "Player O Turn";
 }
+
 function isWinner(a, b) {
     if (a == 3 || b == 3) {
         setTimeout(() => {
             document.getElementById("result").className = "animated-title"
             document.getElementById("result").innerHTML = a == 3 ? "Player 1 Win" : "Player 2 Win";
+            playWinSound(); // Play the win sound
         }, 0);
 
-
         setTimeout(function () {
-
             for (var x = 1; x <= 9; x++) {
                 const button = document.getElementById("box" + x);
                 button.disabled = true;
@@ -205,8 +218,7 @@ function isWinner(a, b) {
             // Delay the page reload by 2 seconds
             setTimeout(function () {
                 window.location.reload();
-            }, 2000);
-
+            }, 3000);
         }, 0);
 
         // Prevent further state changes after a win
@@ -215,6 +227,18 @@ function isWinner(a, b) {
             button.disabled = true;
         }
     }
+}
+
+// Function to play the win sound
+function playWinSound() {
+    var winSound = document.getElementById("win");
+    winSound.play(); // Play the win sound
+}
+
+// Function to play the tie sound
+function playTieSound() {
+    var tieSound = document.getElementById("tie");
+    tieSound.play(); // Play the tie sound
 }
 
 let popup = document.getElementById("popup");
