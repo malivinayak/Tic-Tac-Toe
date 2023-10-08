@@ -12,6 +12,12 @@
   <title>Tic Tac Toe</title>
   <link rel="stylesheet" href="./assets/css/index.css" />
   <link rel="icon" href="./assets/Images/tic-tac-toe.png" type="image/x-icon">
+  <audio id="win">
+    <source src="./assets/sound/winsound.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="tie">
+    <source src="./assets/sound/gametie.mp3" type="audio/mpeg">
+  </audio>
 </head>
 
 <body>
@@ -29,6 +35,7 @@
       <button class="box" id="box8" onclick="box8()"></button>
       <button class="box" id="box9" onclick="box9()"></button>
     </div>
+    
     <div class="btn-container">
       <button type="button" class="feature-btn" title="Undo" onclick="undoMove()">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
@@ -46,6 +53,7 @@
         </svg>
       </button>
     </div>
+    
     <h1 id="result">Player X Turn</h1>
   
     <!-- Add Reset and Undo buttons -->

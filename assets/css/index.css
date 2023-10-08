@@ -29,7 +29,9 @@ body {
 .playground {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: var(--boardbg);
+  box-shadow: 0 10px 20px rgba(43, 41, 41, 0.2);
+  border: 1px solid rgb(255, 255, 255);
+  border-width: 2px;
   padding: 10px;
   justify-content: center;
   border-radius: 1rem;
@@ -38,8 +40,9 @@ body {
 }
 
 .box {
-  background-color: azure;
-  border: 1px solid rgb(15, 25, 220);
+  background-color: rgb(173, 243, 243);
+  border: 1px solid #ffffff;
+  border-width:2px;
   border-radius: 5px;
   padding: 2px;
   margin: 2px;
@@ -52,11 +55,11 @@ body {
 }
 
 .box:hover {
-  background-color: rgba(var(--boardbg), 0.5);
+  background-color: rgb(210, 244, 244);
 }
 
 .box:active {
-  background-color: var(--boardbg);
+  background-color: rgb(173, 243, 243);
   border-radius: 5px;
   margin: 0;
 }
@@ -89,7 +92,7 @@ h1 {
   background-color: transparent;
   background-image: none;
   background-clip: text;
-  color: #00e0ff;
+  color: #00fff2;
 }
 
 .title {
@@ -105,7 +108,6 @@ h1 {
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
-
 }
 
 @keyframes textclip {
@@ -135,12 +137,14 @@ h1 {
   right: 15px;
   bottom: 15px;
 }
+
 .btn:hover {
   background-color: rgb(203, 153, 228);
 }
+
 .feature-btn{
   padding: 14px 12px 9px 12px;
-  background-color: rgb(216, 180, 234);
+  background-color: rgb(182, 243, 248);
   border: 0;
   outline: none;
   cursor: pointer;
@@ -148,6 +152,10 @@ h1 {
   font-weight: 500;
   border-radius: 30px;
   position: relative;
+}
+
+.feature-btn:hover{
+  background-color: rgb(132, 206, 247);
 }
 
 .btn-container{
@@ -193,15 +201,18 @@ h1 {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .popup button:hover {
   background: #ee4e4e;
 }
+
 .open-popup {
   visibility: visible;
   top: 50%;
   transform: translate(-50%, -50%) scale(1);
   transition: all 0.5s ease-in-out;
 }
+
 .popup ol li {
   font-size: 1rem;
   margin-bottom: 15px;
