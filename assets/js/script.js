@@ -181,3 +181,105 @@ function isWinner(a, b) {
     popup.classList.remove("fade-out");
   }, 1000); 
   }
+
+
+
+  var P1 = true;
+var choice = [
+    ["-", "-", "-"],
+    ["-", "-", "-"],
+    ["-", "-", "-"]
+];
+
+var moveStack = []; // Stack to store moves for undo
+
+function boxClick(row, col) {
+    if (choice[row][col] == "-" && !isGameOver()) {
+        var boxId = "box" + (row * 3 + col + 1);
+        var currentPlayerSymbol = P1 ? "X" : "O";
+
+        document.getElementById(boxId).innerHTML = currentPlayerSymbol;
+        choice[row][col] = currentPlayerSymbol;
+
+        // Store the move for possible undo
+        moveStack.push({ row: row, col: col });
+
+        // Check for a win or draw
+        checkResult();
+        P1 = !P1;
+
+        // Update player turn
+        document.getElementById("result").innerHTML = P1 ? "Player X Turn" : "Player O Turn";
+    }
+}
+
+function isGameOver() {
+    return moveStack.length === 9 || checkWin(choice, "X") || checkWin(choice, "O");
+}
+
+function checkResult() {
+    if (checkWin(choice, "X")) {
+        displayResult("Player 1 (X) wins!");
+    } else if (checkWin(choice, "O")) {
+        displayResult("Player 2 (O) wins!");
+    } else if (moveStack.length === 9) {
+        displayResult("It's a draw!");
+    }
+}
+
+function displayResult(message) {
+    document.getElementById("result").innerHTML = message;
+}
+
+function checkWin(board, player) {
+    // Check rows, columns, and diagonals for a win
+    for (let i = 0; i < 3; i++) {
+        if (board[i][0] === player && board[i][1] === player && board[i][2] === player) {
+            return true; // Check rows
+        }
+        if (board[0][i] === player && board[1][i] === player && board[2][i] === player) {
+            return true; // Check columns
+        }
+    }
+    if (board[0][0] === player && board[1][1] === player && board[2][2] === player) {
+        return true; // Check diagonal \
+    }
+    if (board[0][2] === player && board[1][1] === player && board[2][0] === player) {
+        return true; // Check diagonal /
+    }
+    return false;
+}
+
+function undoMove() {
+    if (moveStack.length > 0 && !isGameOver()) {
+        // Get the last move
+        var lastMove = moveStack.pop();
+        var row = lastMove.row;
+        var col = lastMove.col;
+
+        // Clear the box and update the choice array
+        var boxId = "box" + (row * 3 + col + 1);
+        document.getElementById(boxId).innerHTML = "";
+        choice[row][col] = "-";
+
+        // Update player turn
+        P1 = !P1;
+        document.getElementById("result").innerHTML = P1 ? "Player X Turn" : "Player O Turn";
+    }
+}
+
+function resetGame() {
+    for (var i = 1; i <= 9; i++) {
+        var box = document.getElementById("box" + i);
+        box.innerHTML = "";
+        box.disabled = false;
+    }
+    choice = [
+        ["-", "-", "-"],
+        ["-", "-", "-"],
+        ["-", "-", "-"]
+    ];
+    P1 = true;
+    document.getElementById("result").innerHTML = "Player X Turn";
+    moveStack = [];
+}
