@@ -43,6 +43,11 @@ The project consists of the following files and directories:
 
 Sure, here's an example of how to add the contribution and license sections to your GitHub repository's README file:
 
+## Contributors
+
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
+
 ## Contribution
 
 We welcome contributions from the community. To contribute, please follow these steps:
