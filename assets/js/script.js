@@ -4,6 +4,7 @@ var choice = [
     ["-", "-", "-"],
     ["-", "-", "-"]
 ];
+var gameOver = false;
 
 function win() {
     var audio = document.getElementById("win");
@@ -44,16 +45,37 @@ function box9() {
 }
 
 function makeMove(row, col, boxId) {
-    if (choice[row][col] == "-") {
+    if (!gameOver && choice[row][col] == "-") {
         document.getElementById(boxId).textContent = currentPlayer;
         choice[row][col] = currentPlayer;
-        checkResult();
-        currentPlayer = currentPlayer === "X" ? "O" : "X";
+        var result = checkResult();
+
+        if (result === "continue") {
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+            displayturn("Player " + currentPlayer + " Turn");
+        } else {
+            gameOver = true;
+            displayResult(result);
+            if (result === "X Wins!" || result === "O Wins!") {
+                win();
+            } else if (result === "It's a Draw!") {
+                draw();
+            }
+            setTimeout(() => {
+                resetGame();
+            }, 3000);
+
+            // Disable all buttons
+            for (var x = 1; x <= 9; x++) {
+                const button = document.getElementById("box" + x);
+                button.disabled = true;
+            }
+        }
     }
 }
 
 function checkResult() {
-    var winner = null; // Track the winner, if there is any.
+    var winner = null;
 
     // Check for a win
     for (let i = 0; i < 3; i++) {
@@ -76,12 +98,7 @@ function checkResult() {
     }
 
     if (winner) {
-        displayResult(winner + " Wins!");
-        win();
-        setTimeout(() => {
-            resetGame();
-        }, 3000);
-        return;
+        return winner + " Wins!";
     }
 
     // Check for a draw
@@ -96,12 +113,15 @@ function checkResult() {
     }
 
     if (isDraw) {
-        displayResult("It's a Draw!");
-        draw();
-        setTimeout(() => {
-            resetGame();
-        }, 3000);
+        return "It's a Draw!";
     }
+
+    return "continue";
+}
+
+function displayturn(message) {
+    var resultElement = document.getElementById("result");
+    resultElement.textContent = message;
 }
 
 function displayResult(message) {
@@ -118,6 +138,14 @@ function resetGame() {
     ];
     clearBoard();
     document.getElementById("result").textContent = "";
+    displayturn("Player " + currentPlayer + " Turn");
+    gameOver = false; // Reset gameOver
+    
+    // Enable all buttons
+    for (var x = 1; x <= 9; x++) {
+        const button = document.getElementById("box" + x);
+        button.disabled = false;
+    }
 }
 
 function clearBoard() {
@@ -128,10 +156,18 @@ function clearBoard() {
 
 function openPopup() {
     var popup = document.getElementById("popup");
-    popup.style.display = "block";
+    popup.classList.add("open-popup");
 }
 
 function closePopup() {
     var popup = document.getElementById("popup");
-    popup.style.display = "none";
+    popup.classList.remove("open-popup");
+    popup.classList.add("fade-out");
+    setTimeout(() => {
+        popup.classList.remove("visible");
+        popup.classList.remove("fade-out");
+    }, 1000);
 }
+
+// Start the game
+displayturn("Player " + currentPlayer + " Turn");
