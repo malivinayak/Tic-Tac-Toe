@@ -1,55 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="Tic Tac Toe" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="Play Tic Tac Toe Game online!" />
-    <meta property="og:image" content="./assets/Images/image.png" />
-    <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="./assets/css/index.css" />
-    <link rel="icon" href="./assets/Images/tic-tac-toe.png" type="image/x-icon">
-  </head>
-  <body>
-    <div class="parent">
-      <h1 class="title">Tic Tac Toe Game</h1>
-      <div class="playground">
-        <button class="box" id="box1" onclick="box1()"></button>
-        <button class="box" id="box2" onclick="box2()"></button>
-        <button class="box" id="box3" onclick="box3()"></button>
-        <button class="box" id="box4" onclick="box4()"></button>
-        <button class="box" id="box5" onclick="box5()"></button>
-        <button class="box" id="box6" onclick="box6()"></button>
-        <button class="box" id="box7" onclick="box7()"></button>
-        <button class="box" id="box8" onclick="box8()"></button>
-        <button class="box" id="box9" onclick="box9()"></button>
-      </div>
-      <h1 id="result">Player X Turn</h1>
-      <div class="container">
-        <button type="button" class="btn" onclick="openPopup()">Rules</button>
-      </div>
-      <div class="popup" id="popup">
-        <h2>Rules:</h2>
-        <ol>
-          <li>The game is played on a grid that's 3 squares by 3 squares.</li>
-          <li>
-            Player 1 is X and Player 2 is O. Players take turns putting their
-            marks in empty squares.
-          </li>
-          <li>
-            The first player to get 3 of his marks in a row (up, down, across,
-            or diagonally) is the winner.
-          </li>
-          <li>
-            When all 9 squares are full, the game is over. If no player has 3
-            marks in a row, the game ends in a tie.
-          </li>
-        </ol>
-        <button type="button" onclick="closePopup()">OK</button>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Tic Tac Toe" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Play Tic Tac Toe Game online!" />
+  <meta property="og:image" content="./assets/Images/image.png" />
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="./assets/css/index.css" />
+  <link rel="icon" href="./assets/Images/tic-tac-toe.png" type="image/x-icon">
+</head>
+
+<body>
+  <div class="parent">
+    <h1 class="title">Tic Tac Toe Game</h1>
+    
+    <div class="playground">
+      <button class="box" id="box1" onclick="box1()"></button>
+      <button class="box" id="box2" onclick="box2()"></button>
+      <button class="box" id="box3" onclick="box3()"></button>
+      <button class="box" id="box4" onclick="box4()"></button>
+      <button class="box" id="box5" onclick="box5()"></button>
+      <button class="box" id="box6" onclick="box6()"></button>
+      <button class="box" id="box7" onclick="box7()"></button>
+      <button class="box" id="box8" onclick="box8()"></button>
+      <button class="box" id="box9" onclick="box9()"></button>
     </div>
-    <script src="./assets/js/script.js"></script>
-  </body>
+    <div class="btn-container">
+      <button type="button" class="feature-btn" onclick="undoMove()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+          class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+        </svg>
+      </button>
+      <button type="button" class="feature-btn" onclick="resetGame()"><svg xmlns="http://www.w3.org/2000/svg" width="25"
+          height="25" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+          <path
+            d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
+          <path fill-rule="evenodd"
+            d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
+        </svg>
+      </button>
+    </div>
+    <h1 id="result">Player X Turn</h1>
+  
+    <!-- Add Reset and Undo buttons -->
+    <div class="container">
+      <button type="button" class="btn" onclick="openPopup()">Rules</button>
+    </div>
+
+    <div class="popup" id="popup">
+      <h2>Rules:</h2>
+      <ol>
+        <li>The game is played on a grid that's 3 squares by 3 squares.</li>
+        <li>
+          Player 1 is X and Player 2 is O. Players take turns putting their
+          marks in empty squares.
+        </li>
+        <li>
+          The first player to get 3 of his marks in a row (up, down, across,
+          or diagonally) is the winner.
+        </li>
+        <li>
+          When all 9 squares are full, the game is over. If no player has 3
+          marks in a row, the game ends in a tie.
+        </li>
+      </ol>
+      <button type="button" onclick="closePopup()">OK</button>
+    </div>
+  </div>
+  <script src="./assets/js/script.js"></script>
+</body>
+
 </html>
