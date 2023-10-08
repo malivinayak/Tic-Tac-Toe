@@ -1,15 +1,56 @@
-
 var P1 = true;
+var moves = [];
 var choice = [
     ["-", "-", "-"],
     ["-", "-", "-"],
     ["-", "-", "-"]
 ];
+// Function to reset the game
+function resetGame() {
+    for (let i = 1; i <= 9; i++) {
+        const button = document.getElementById("box" + i);
+        button.innerHTML = "";
+        button.disabled = false;
+    }
+    P1 = true;
+    choice = [
+        ["-", "-", "-"],
+        ["-", "-", "-"],
+        ["-", "-", "-"]
+    ];
+    document.getElementById("result").innerHTML = "Player X Turn";
+}
+
+// Function to undo the last move
+function undoMove() {
+    if (moves.length > 0) {
+        const [row, col] = moves.pop(); // Get the most recent move
+        const button = document.getElementById("box" + (row * 3 + col + 1));
+        button.innerHTML = "";
+        button.disabled = false;
+        choice[row][col] = "-";
+        P1 = !P1;
+        document.getElementById("result").innerHTML = P1 ? "Player X Turn" : "Player O Turn";
+    }
+}
+
+// Helper function to get the coordinates of the last move
+function getLastMove() {
+    for (let row = 2; row >= 0; row--) {
+        for (let col = 2; col >= 0; col--) {
+            if (choice[row][col] !== "-") {
+                return [row, col];
+            }
+        }
+    }
+    return null; // No moves made yet
+}
 
 function box1() {
     if (choice[0][0] == "-") {
         document.getElementById("box1").innerHTML = P1 ? "X" : "O";
         choice[0][0] = P1 ? "X" : "O";
+        moves.push([0, 0]);
         checkResult();
         P1 = !P1;
     }
@@ -18,6 +59,7 @@ function box2() {
     if (choice[0][1] == "-") {
         document.getElementById("box2").innerHTML = P1 ? "X" : "O";
         choice[0][1] = P1 ? "X" : "O";
+        moves.push([0, 1]);
         checkResult();
         P1 = !P1;
     }
@@ -26,6 +68,7 @@ function box3() {
     if (choice[0][2] == "-") {
         document.getElementById("box3").innerHTML = P1 ? "X" : "O";
         choice[0][2] = P1 ? "X" : "O";
+        moves.push([0, 2]);
         checkResult();
         P1 = !P1;
     }
@@ -34,6 +77,7 @@ function box4() {
     if (choice[1][0] == "-") {
         document.getElementById("box4").innerHTML = P1 ? "X" : "O";
         choice[1][0] = P1 ? "X" : "O";
+        moves.push([1, 0]);
         checkResult();
         P1 = !P1;
     }
@@ -42,6 +86,7 @@ function box5() {
     if (choice[1][1] == "-") {
         document.getElementById("box5").innerHTML = P1 ? "X" : "O";
         choice[1][1] = P1 ? "X" : "O";
+        moves.push([1, 1]);
         checkResult();
         P1 = !P1;
     }
@@ -50,6 +95,7 @@ function box6() {
     if (choice[1][2] == "-") {
         document.getElementById("box6").innerHTML = P1 ? "X" : "O";
         choice[1][2] = P1 ? "X" : "O";
+        moves.push([1, 2]);
         checkResult();
         P1 = !P1;
     }
@@ -58,6 +104,7 @@ function box7() {
     if (choice[2][0] == "-") {
         document.getElementById("box7").innerHTML = P1 ? "X" : "O";
         choice[2][0] = P1 ? "X" : "O";
+        moves.push([2, 0]);
         checkResult();
         P1 = !P1;
     }
@@ -66,6 +113,7 @@ function box8() {
     if (choice[2][1] == "-") {
         document.getElementById("box8").innerHTML = P1 ? "X" : "O";
         choice[2][1] = P1 ? "X" : "O";
+        moves.push([2, 1]);
         checkResult();
         P1 = !P1;
     }
@@ -74,6 +122,7 @@ function box9() {
     if (choice[2][2] == "-") {
         document.getElementById("box9").innerHTML = P1 ? "X" : "O";
         choice[2][2] = P1 ? "X" : "O";
+        moves.push([2, 2]);
         checkResult();
         P1 = !P1;
     }
@@ -133,9 +182,9 @@ function checkResult() {
     if (emptyCells === 0) {
         document.getElementById("result").innerHTML = "It's a Draw!";
         setTimeout(function () {
-          window.location.reload();
+            window.location.reload();
         }, 2000);
-      }
+    }
     document.getElementById("result").innerHTML = !P1 ? "Player X Turn" : "Player O Turn";
 }
 function isWinner(a, b) {
@@ -144,40 +193,40 @@ function isWinner(a, b) {
             document.getElementById("result").className = "animated-title"
             document.getElementById("result").innerHTML = a == 3 ? "Player 1 Win" : "Player 2 Win";
         }, 0);
-      
-  
-      setTimeout(function () {
-      
-        for (var x = 1; x <= 9; x++) {
-          const button = document.getElementById("box" + x);
-          button.disabled = true;
-        }
-  
-        // Delay the page reload by 2 seconds
+
+
         setTimeout(function () {
-          window.location.reload();
-        }, 2000);
-  
-      }, 0);
-  
-      // Prevent further state changes after a win
-      for (var x = 1; x <= 9; x++) {
-        const button = document.getElementById("box" + x);
-        button.disabled = true;
-      }
+
+            for (var x = 1; x <= 9; x++) {
+                const button = document.getElementById("box" + x);
+                button.disabled = true;
+            }
+
+            // Delay the page reload by 2 seconds
+            setTimeout(function () {
+                window.location.reload();
+            }, 2000);
+
+        }, 0);
+
+        // Prevent further state changes after a win
+        for (var x = 1; x <= 9; x++) {
+            const button = document.getElementById("box" + x);
+            button.disabled = true;
+        }
     }
-  }
-  
-  let popup = document.getElementById("popup");
-  function openPopup(){
+}
+
+let popup = document.getElementById("popup");
+function openPopup() {
 
     popup.classList.add("open-popup");
-  }
-  function closePopup(){
+}
+function closePopup() {
     popup.classList.remove("open-popup")
-    popup.classList.add("fade-out"); 
+    popup.classList.add("fade-out");
     setTimeout(() => {
-    popup.classList.remove("visible");
-    popup.classList.remove("fade-out");
-  }, 1000); 
-  }
+        popup.classList.remove("visible");
+        popup.classList.remove("fade-out");
+    }, 1000);
+}
