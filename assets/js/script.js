@@ -1,5 +1,6 @@
 
 var P1 = true;
+var moves = [];
 var choice = [
     ["-", "-", "-"],
     ["-", "-", "-"],
@@ -23,9 +24,8 @@ function resetGame() {
 
 // Function to undo the last move
 function undoMove() {
-    const lastMove = getLastMove();
-    if (lastMove) {
-        const [row, col] = lastMove;
+    if (moves.length > 0) {
+        const [row, col] = moves.pop(); // Get the most recent move
         const button = document.getElementById("box" + (row * 3 + col + 1));
         button.innerHTML = "";
         button.disabled = false;
@@ -51,6 +51,7 @@ function box1() {
     if (choice[0][0] == "-") {
         document.getElementById("box1").innerHTML = P1 ? "X" : "O";
         choice[0][0] = P1 ? "X" : "O";
+        moves.push([0, 0]); 
         checkResult();
         P1 = !P1;
     }
@@ -59,6 +60,7 @@ function box2() {
     if (choice[0][1] == "-") {
         document.getElementById("box2").innerHTML = P1 ? "X" : "O";
         choice[0][1] = P1 ? "X" : "O";
+        moves.push([0, 1]); 
         checkResult();
         P1 = !P1;
     }
@@ -67,6 +69,7 @@ function box3() {
     if (choice[0][2] == "-") {
         document.getElementById("box3").innerHTML = P1 ? "X" : "O";
         choice[0][2] = P1 ? "X" : "O";
+        moves.push([0, 2]); 
         checkResult();
         P1 = !P1;
     }
@@ -75,6 +78,7 @@ function box4() {
     if (choice[1][0] == "-") {
         document.getElementById("box4").innerHTML = P1 ? "X" : "O";
         choice[1][0] = P1 ? "X" : "O";
+        moves.push([1, 0]); 
         checkResult();
         P1 = !P1;
     }
@@ -83,6 +87,7 @@ function box5() {
     if (choice[1][1] == "-") {
         document.getElementById("box5").innerHTML = P1 ? "X" : "O";
         choice[1][1] = P1 ? "X" : "O";
+        moves.push([1, 1]); 
         checkResult();
         P1 = !P1;
     }
@@ -91,6 +96,7 @@ function box6() {
     if (choice[1][2] == "-") {
         document.getElementById("box6").innerHTML = P1 ? "X" : "O";
         choice[1][2] = P1 ? "X" : "O";
+        moves.push([1, 2]); 
         checkResult();
         P1 = !P1;
     }
@@ -99,6 +105,7 @@ function box7() {
     if (choice[2][0] == "-") {
         document.getElementById("box7").innerHTML = P1 ? "X" : "O";
         choice[2][0] = P1 ? "X" : "O";
+        moves.push([2, 0]); 
         checkResult();
         P1 = !P1;
     }
@@ -107,6 +114,7 @@ function box8() {
     if (choice[2][1] == "-") {
         document.getElementById("box8").innerHTML = P1 ? "X" : "O";
         choice[2][1] = P1 ? "X" : "O";
+        moves.push([2, 1]); 
         checkResult();
         P1 = !P1;
     }
@@ -115,6 +123,7 @@ function box9() {
     if (choice[2][2] == "-") {
         document.getElementById("box9").innerHTML = P1 ? "X" : "O";
         choice[2][2] = P1 ? "X" : "O";
+        moves.push([2, 2]); 
         checkResult();
         P1 = !P1;
     }
