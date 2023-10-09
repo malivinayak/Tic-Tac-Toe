@@ -13,9 +13,12 @@
 }
 
 body {
-  margin: 0px;
-  background-image: linear-gradient(75deg, #00e0ff, #7000ff 48%, #ff6868);
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(75deg, #9ff2fd, #974cf8 48%, #f66060);
   font-family: "Roboto", sans-serif;
+  background-attachment: fixed;
+  
 }
 
 .parent {
@@ -93,6 +96,7 @@ h1 {
   background-image: none;
   background-clip: text;
   color: #00fff2;
+  margin-top: -10px;
 }
 
 .title {
@@ -134,8 +138,8 @@ h1 {
   font-weight: 500;
   border-radius: 30px;
   position: absolute;
-  right: 15px;
-  bottom: 15px;
+  right: 30px;
+  bottom: 50px;
 }
 
 .btn:hover {
@@ -239,6 +243,6 @@ h1 {
     padding: 0 10px 20px 10px;
   }
   .popup h2 {
-    font-size: 25px;
+    font-size: 20px;
   }
 }

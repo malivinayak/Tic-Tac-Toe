@@ -19,7 +19,7 @@ function resetGame() {
         ["-", "-", "-"],
         ["-", "-", "-"]
     ];
-    document.getElementById("result").innerHTML = "Player X Turn";
+    document.getElementById("result").innerHTML = "1st Player Turn";
 }
 
 // Function to undo the last move
@@ -31,7 +31,7 @@ function undoMove() {
         button.disabled = false;
         choice[row][col] = "-";
         P1 = !P1;
-        document.getElementById("result").innerHTML = P1 ? "Player X Turn" : "Player O Turn";
+        document.getElementById("result").innerHTML = P1 ? "1st Player Turn" : "2nd Player Turn";
     }
 }
 
@@ -197,7 +197,7 @@ function checkResult() {
             window.location.reload();
         }, 3000);
     } else {
-        document.getElementById("result").innerHTML = !P1 ? "Player X Turn" : "Player O Turn";
+        document.getElementById("result").innerHTML = !P1 ? "1st Player Turn" : "2nd Player Turn";
     }
 }
 
