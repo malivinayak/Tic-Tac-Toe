@@ -70,6 +70,13 @@ Sure, here's an example of how to add the contribution and license sections to y
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Hareesh061">
+            <img src="https://avatars.githubusercontent.com/u/90563881?v=4" width="100;" alt="Hareesh061"/>
+            <br />
+            <sub><b>Hareesh Naik</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/SumitMangrati">
             <img src="https://avatars.githubusercontent.com/u/113664757?v=4" width="100;" alt="SumitMangrati"/>
             <br />
@@ -82,15 +89,15 @@ Sure, here's an example of how to add the contribution and license sections to y
             <br />
             <sub><b>Mohammed Mustafa Khan</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/ruturaj-gh">
             <img src="https://avatars.githubusercontent.com/u/83021083?v=4" width="100;" alt="ruturaj-gh"/>
             <br />
             <sub><b>Ruturaj Dnyandev Ghumkar</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/Sankalp20Tiwari">
             <img src="https://avatars.githubusercontent.com/u/101463579?v=4" width="100;" alt="Sankalp20Tiwari"/>
