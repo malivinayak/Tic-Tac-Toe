@@ -13,7 +13,7 @@
 }
 
 body {
-  margin: 0;
+   margin: 0;
   padding: 0;
   background-image: linear-gradient(10deg,#6822c5, #e609f1 38%,#1628ef); 
   font-family: "Roboto", sans-serif;
